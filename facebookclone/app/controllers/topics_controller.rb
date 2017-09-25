@@ -1,5 +1,6 @@
 class TopicsController < ApplicationController
 
+  before_action :authenticate_user!
   before_action :set_topic, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -12,8 +13,9 @@ class TopicsController < ApplicationController
 
   def create
     @topic = Topic.new(topics_params)
+    @topic.user_id = current_user.id
     if @topic.save
-      redirect_to action: :index
+      redirect_to action: :index, notice: "ブログを作成しました！"
     else
       redirect_to action: :index
     end
