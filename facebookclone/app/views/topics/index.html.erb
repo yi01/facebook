@@ -10,7 +10,6 @@
 <% end %>
 
 
-<p><%= notice %></p>
 
 
 <div class="container">
@@ -18,7 +17,15 @@
     <p><%= notice %></p>
     <% @topics.each do |topic| %>
       <p>
-        <%= topic.content %>
+
+        <div style="background-color: white; width: 500px; height: 400px; margin: 0 auto;">
+          <div style="text-align: left; padding: 15px;">
+            <%= topic.user.name %>
+          </div>
+          <div style="text-align: left; padding: 15px; width: 50%;">
+            <%= topic.content %>
+          </div>
+        </div>
         <%= link_to "詳細", topic_path(topic.id) %>
         <%= link_to "編集", edit_topic_path(topic.id) %>
         <%= link_to "削除", topic_path(topic.id), method: :delete, data: {confirm: "削除しますか？"} %>

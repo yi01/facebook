@@ -6,11 +6,11 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body style="background-color: #cccccc;">
 
   <header>
     <ul>
-      <li><a href="#">facebook</a></li>
+      <li><a href="/">facebook</a></li>
 
       <% if user_signed_in? %>
       <li><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
